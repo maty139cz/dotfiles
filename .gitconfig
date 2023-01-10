@@ -1,0 +1,31 @@
+[user]
+	name = Matouš Čermák
+	email = 83394404+maty139cz@users.noreply.github.com
+	signingKey = ""
+[core]
+	editor = code --wait
+	autoclrf = input
+[color]
+	ui = auto
+[gpg]
+	program = gpg
+[commit]
+	gpgSign = false
+[tag]
+	forceSignAnnotated = false
+[credential "https://github.com"]
+	helper =
+	helper = !/usr/bin/gh auth git-credential
+[credential "https://gist.github.com"]
+	helper =
+	helper = !/usr/bin/gh auth git-credential
+[alias]
+	amend = commit --amend --no-edit
+	s = status
+	pushf = push --force
+	co = commit
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
