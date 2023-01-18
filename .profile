@@ -26,9 +26,9 @@ if [ -d "$HOME/.local/bin" ] ; then
     PATH="$HOME/.local/bin:$PATH"
 fi
 
-if [ -f ~/.bash_git ]; then
-    . ~/.bash_git
-fi
+#if [ -f ~/.bash_git ]; then
+#    . ~/.bash_git
+#fi
 
 
 #source for autostart util

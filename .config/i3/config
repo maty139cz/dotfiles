@@ -230,7 +230,6 @@ client.background       $bg
 # Moving workspaces between screens
 bindsym $mod+p move workspace to output right
 
-set $wallpaper ~/Obrázky/Tress\ Digital\ Package/Tress_wallpaper_horizontal_no_title.jpg
 
 # Screen brightness controls
 bindsym XF86MonBrightnessUp exec xbacklight -inc 10
@@ -245,7 +244,7 @@ exec xinput set-prop "ELAN0718:01 04F3:30FD Touchpad" "libinput Tapping Enabled"
 exec xinput set-prop "ELAN0718:01 04F3:30FD Touchpad" "libinput Natural Scrolling Enabled" 1
 # invert scrolling direction
 exec_always xinput set-prop "ELAN0718:01 04F3:30FD Touchpad" "libinput Scroll Method Enabled" -1 1 1
-
+exec wal -Rq
 # autoenable numlock
 exec_always --no-startup-id numlockx on
 # launch polybar with script

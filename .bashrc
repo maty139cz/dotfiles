@@ -119,25 +119,6 @@ if ! shopt -oq posix; then
   fi
 fi
 
-
-
-
-
-# >>> conda initialize >>>
-# !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/home/matous/anaconda3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
-if [ $? -eq 0 ]; then
-    eval "$__conda_setup"
-else
-    if [ -f "/home/matous/anaconda3/etc/profile.d/conda.sh" ]; then
-        . "/home/matous/anaconda3/etc/profile.d/conda.sh"
-    else
-        export PATH="/home/matous/anaconda3/bin:$PATH"
-    fi
-fi
-unset __conda_setup
-# <<< conda initialize <<<
-
 #the fuck init
 eval "$(thefuck --alias)"
 
@@ -165,3 +146,12 @@ else
     ssh-add
 fi
 
+# pip bash completion start
+_pip_completion()
+{
+    COMPREPLY=( $( COMP_WORDS="${COMP_WORDS[*]}" \
+                   COMP_CWORD=$COMP_CWORD \
+                   PIP_AUTO_COMPLETE=1 $1 2>/dev/null ) )
+}
+complete -o default -F _pip_completion pip
+# pip bash completion end
