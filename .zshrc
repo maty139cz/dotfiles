@@ -70,7 +70,10 @@ ZSH_THEME="agnoster"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git textmate)
+plugins=(git autojump pip thefuck tig gh zsh-autosuggestions alias-finder colored-man-pages ssh-agent vscode)
+
+#ssh-agent settings
+zstyle :omz:plugins:ssh-agent agent-forwarding yes
 
 source $ZSH/oh-my-zsh.sh
 
@@ -106,36 +109,6 @@ alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
 
-if [ -f ~/.bash_aliases ]; then
-    . ~/.bash_aliases
+if [ -f ~/.aliases ]; then
+    . ~/.aliases
 fi
-
-#the fuck init
-eval "$(thefuck --alias)"
-
-#source for autostart util
-. /usr/share/autojump/autojump.sh
-
-#autostart ssh agent
-if [ -f ~/.ssh/agent.env ] ; then
-    . ~/.ssh/agent.env > /dev/null
-    if ! kill -0 $SSH_AGENT_PID > /dev/null 2>&1; then
-        echo "Stale agent file found. Spawning a new agent. "
-        eval `ssh-agent | tee ~/.ssh/agent.env`
-        ssh-add
-    fi
-else
-    echo "Starting ssh-agent"
-    eval `ssh-agent | tee ~/.ssh/agent.env`
-    ssh-add
-fi
-
-# pip bash completion start
-_pip_completion()
-{
-    COMPREPLY=( $( COMP_WORDS="${COMP_WORDS[*]}" \
-                   COMP_CWORD=$COMP_CWORD \
-                   PIP_AUTO_COMPLETE=1 $1 2>/dev/null ) )
-}
-complete -o default -F _pip_completion pip
-# pip bash completion end
