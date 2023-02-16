@@ -117,6 +117,11 @@ bindsym $mod+a focus parent
 # focus the child container
 #bindsym $mod+d focus child
 
+exec wal -Rq
+
+# bind wal change on mod+shift+b
+bindsym  $mod+Shift+b exec --no-startup-id wal -i $HOME/Obrázky/wallpapers/ --backend colorz -q
+
 # Define names for default workspaces for which we configure key bindings later on.
 # We use variables to avoid repeating the names in multiple places.
 set $ws1 "1"
@@ -226,6 +231,8 @@ client.background       $bg
 # }
 
 
+#bind keaboard layout change on alt+space
+exec --no-startup-id setxkbmap -layout us,cz -option grp:alt_shift_toggle
 
 # Moving workspaces between screens
 bindsym $mod+p move workspace to output right
@@ -244,7 +251,7 @@ exec xinput set-prop "ELAN0718:01 04F3:30FD Touchpad" "libinput Tapping Enabled"
 exec xinput set-prop "ELAN0718:01 04F3:30FD Touchpad" "libinput Natural Scrolling Enabled" 1
 # invert scrolling direction
 exec_always xinput set-prop "ELAN0718:01 04F3:30FD Touchpad" "libinput Scroll Method Enabled" -1 1 1
-exec wal -Rq
+
 # autoenable numlock
 exec_always --no-startup-id numlockx on
 # launch polybar with script
@@ -310,4 +317,10 @@ smart_gaps on
 gaps inner 3
 gaps outer 7
 
+#autofloating for popups and dialogues
+for_window [window_role="pop-up"] floating enable
+for_window [window_role="task_dialog"] floating enable
 
+# autostart thunderbird on worspace 2
+exec --no-startup-id i3-msg 'workspace number $ws2; exec thunderbird'
+no_focus [class="Thunderbird"]
