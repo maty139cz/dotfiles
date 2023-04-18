@@ -6,3 +6,5 @@ alias mine='sudo xmrig -o gulf.moneroocean.stream:10128 -u 41t9WMNn6mfXp5wfeJnah
 alias shut='shutdown now'
 alias cle='wipeclean'
 alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
+alias cmatrix='unimatrix -af'
+alias sudo='doas'

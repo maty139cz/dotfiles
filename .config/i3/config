@@ -231,8 +231,7 @@ client.background       $bg
 # }
 
 
-#bind keaboard layout change on alt+space
-exec --no-startup-id setxkbmap -layout us,cz -option grp:alt_shift_toggle
+
 
 # Moving workspaces between screens
 bindsym $mod+p move workspace to output right
@@ -242,8 +241,9 @@ bindsym $mod+p move workspace to output right
 bindsym XF86MonBrightnessUp exec xbacklight -inc 10
 bindsym XF86MonBrightnessDown exec xbacklight -dec 10
 #screenshots
-bindsym $mod+m exec scrot -s -e 'mv $f ~/Obrázky/Screenshots/'
-
+bindsym Print --release exec --no-startup-id gnome-screenshot
+bindsym $mod+Print --release exec --no-startup-id gnome-screenshot -w
+bindsym Shift+Print --release exec --no-startup-id gnome-screenshot -a
 # enable tap to click for this touchpad
 exec xinput set-prop "ELAN0718:01 04F3:30FD Touchpad" "libinput Tapping Enabled" 1
 
@@ -276,7 +276,7 @@ mode "$mode_system" {
 bindsym $mod+shift+q  mode "$mode_system"
 
 #mode for launching appls and programs
-set $mode_launch Launch (o) Obsidian (c) VScode (b) Brave browser (n) Nemo (s) Spotify (p) Bitwarden (d) Discord (g) github desktop (t) Thunderbird
+set $mode_launch Launch (o) Obsidian (c) VScode (b) Brave browser (n) Nemo (s) Spotify (p) Bitwarden (d) Discord (g) github desktop (t) Thunderbird (m) Caprine massenger
 
 mode "$mode_launch" {
     bindsym o exec --no-startup-id flatpak run md.obsidian.Obsidian, mode "default"
@@ -288,6 +288,7 @@ mode "$mode_launch" {
     bindsym d exec --no-startup-id discord, mode "default"
     bindsym g exec --no-startup-id github-desktop, mode "default"
     bindsym t exec --no-startup-id thunderbird, mode "default"
+    bindsym m exec  flatpak run com.sindresorhus.Caprine, mode "default"
 
 #the same shortcuts bau with mod key
     bindsym $mod+o exec --no-startup-id flatpak run md.obsidian.Obsidian, mode "default"
@@ -324,3 +325,8 @@ for_window [window_role="task_dialog"] floating enable
 # autostart thunderbird on worspace 2
 exec --no-startup-id i3-msg 'workspace number $ws2; exec thunderbird'
 no_focus [class="Thunderbird"]
+
+# exec layout_manager.sh on mod+shift+a
+bindsym $mod+shift+a exec --no-startup-id $HOME/.config/i3/layout_manager.sh
+
+

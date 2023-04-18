@@ -112,3 +112,5 @@ alias l='ls -CF'
 if [ -f ~/.aliases ]; then
     . ~/.aliases
 fi
+
+export PATH=$PATH:/home/matous/.spicetify
