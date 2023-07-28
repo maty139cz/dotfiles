@@ -37,3 +37,5 @@ fi
 #set locale variables 
 export LANG=cs_CZ.UTF-8
 export LC_ALL=cs_CZ.UTF-8
+
+export CALIBRE_USE_SYSTEM_THEME=1
