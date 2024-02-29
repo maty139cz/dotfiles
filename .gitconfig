@@ -5,6 +5,7 @@
 [core]
 	editor = code --wait
 	autoclrf = input
+	autocrlf = input
 [color]
 	ui = auto
 [gpg]

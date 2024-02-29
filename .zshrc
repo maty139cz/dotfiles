@@ -70,7 +70,7 @@ ZSH_THEME="agnoster"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git autojump pip thefuck tig gh zsh-autosuggestions alias-finder colored-man-pages ssh-agent vscode nix-zsh-completions)
+plugins=(autojump git pip thefuck tig gh zsh-autosuggestions alias-finder colored-man-pages ssh-agent vscode nix-zsh-completions)
 
 #ssh-agent settings
 zstyle :omz:plugins:ssh-agent agent-forwarding yes
@@ -114,3 +114,13 @@ if [ -f ~/.aliases ]; then
 fi
 
 export PATH=$PATH:/home/matous/.spicetify
+
+
+#[ -f "/home/matous/.ghcup/env" ] && source "/home/matous/.ghcup/env" # ghcup-env
+
+[ -f "/home/matous/.ghcup/env" ] && source "/home/matous/.ghcup/env" # ghcup-env
+
+# fnm
+export PATH="/home/matous/.local/share/fnm:$PATH"
+eval "`fnm env`"
+export TERMINAL=warp-terminal  

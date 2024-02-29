@@ -32,7 +32,7 @@ fi
 
 
 #source for autostart util
-. /usr/share/autojump/autojump.sh
+# . /usr/share/autojump/autojump.sh
 
 #set locale variables 
 export LANG=cs_CZ.UTF-8

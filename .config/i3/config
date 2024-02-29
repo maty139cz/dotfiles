@@ -55,7 +55,7 @@ bindsym XF86AudioMute exec amixer -q -D pulse sset Master toggle && pkill -RTMIN
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec i3-sensible-terminal
+bindsym $mod+Return exec warp-terminal || i3-sensible-terminal
 
 # kill focused window
 bindsym $mod+q kill
@@ -238,6 +238,8 @@ client.background       $bg
 # Moving workspaces between screens
 bindsym $mod+p move workspace to output right
 
+# xzoom magifier on mod+z
+bindsym $mod+z exec --no-startup-id xzoom
 
 # Screen brightness controls
 bindsym XF86MonBrightnessUp exec xbacklight -inc 10
@@ -278,30 +280,35 @@ mode "$mode_system" {
 bindsym $mod+shift+q  mode "$mode_system"
 
 #mode for launching appls and programs
-set $mode_launch Launch (o) Obsidian (c) VScode (b) Brave browser (n) Nemo (s) Spotify (p) Bitwarden (d) Discord (g) github desktop (t) Thunderbird (m) Caprine massenger
+set $mode_launch Launch (o) Obsidian (c) VScode (b) Browser (n) Nemo (s) Spotify (p) Bitwarden (d) Discord (g) github desktop (t) Thunderbird (m) Caprine massenger (j) Jellyfin
 
 mode "$mode_launch" {
-    bindsym o exec --no-startup-id flatpak run md.obsidian.Obsidian, mode "default"
-    bindsym c exec --no-startup-id code, mode "default"
-    bindsym b exec --no-startup-id brave-browser, mode "default"
-    bindsym n exec --no-startup-id nemo, mode "default"
-    bindsym s exec --no-startup-id spotify, mode "default"
-    bindsym p exec --no-startup-id flatpak run com.bitwarden.desktop, mode "default"
-    bindsym d exec --no-startup-id discord, mode "default"
-    bindsym g exec --no-startup-id github-desktop, mode "default"
-    bindsym t exec --no-startup-id thunderbird, mode "default"
-    bindsym m exec  flatpak run com.sindresorhus.Caprine, mode "default"
+    bindsym o exec  flatpak run md.obsidian.Obsidian, mode "default"
+    bindsym c exec  code, mode "default"
+    bindsym b exec  floorp, mode "default"
+    bindsym n exec  nemo, mode "default"
+    bindsym s exec spotify, mode "default"
+    bindsym p exec flatpak run com.bitwarden.desktop, mode "default"
+    bindsym d exec discord, mode "default"
+    bindsym g exec github-desktop, mode "default"
+    bindsym t exec thunderbird, mode "default"
+    bindsym j exec flatpak run com.github.iwalton3.jellyfin-media-player, mode "default"
+    bindsym m exec flatpak run com.sindresorhus.Caprine, mode "default"
+    bindsym i exec idea, mode "default"
 
 #the same shortcuts bau with mod key
     bindsym $mod+o exec --no-startup-id flatpak run md.obsidian.Obsidian, mode "default"
     bindsym $mod+c exec --no-startup-id code, mode "default"
-    bindsym $mod+b exec --no-startup-id brave-browser, mode "default"
+    bindsym $mod+b exec --no-startup-id floorp, mode "default"
     bindsym $mod+n exec --no-startup-id nemo, mode "default"
     bindsym $mod+s exec --no-startup-id spotify, mode "default"
     bindsym $mod+p exec --no-startup-id flatpak run com.bitwarden.desktop, mode "default"
     bindsym $mod+d exec --no-startup-id discord, mode "default"
     bindsym $mod+g exec --no-startup-id github-desktop, mode "default"
     bindsym $mod+t exec --no-startup-id thunderbird, mode "default"
+    bindsym $mod+j exec --no-startup-id flatpak run com.github.iwalton3.jellyfin-media-player, mode "default"
+    bindsym $mod+m exec --no-startup-id flatpak run com.sindresorhus.Caprine, mode "default"
+    bindsym $mod+i exec --no-startup-id idea, mode "default"
 
     # back to normal: Enter or Escape
     bindsym Return mode "default"
