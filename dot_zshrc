@@ -70,7 +70,7 @@ ZSH_THEME="agnoster"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(autojump git pip thefuck tig gh zsh-autosuggestions alias-finder colored-man-pages ssh-agent vscode nix-zsh-completions)
+plugins=(chezmoi autojump git pip thefuck tig gh zsh-autosuggestions alias-finder colored-man-pages ssh-agent vscode nix-zsh-completions)
 
 #ssh-agent settings
 zstyle :omz:plugins:ssh-agent agent-forwarding yes
