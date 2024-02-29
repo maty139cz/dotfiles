@@ -338,4 +338,6 @@ no_focus [class="Thunderbird"]
 # exec layout_manager.sh on mod+shift+a
 bindsym $mod+shift+a exec --no-startup-id $HOME/.config/i3/layout_manager.sh
 
-
+#exec syncthing
+exec syncthing
+#testing
