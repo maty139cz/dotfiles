@@ -65,11 +65,12 @@ module-margin-left = 1
 module-margin-right = 2
 
 font-0 = UbuntuMono Nerd Font Mono:style=Regular:pixelsize=10;1
-#font-1 = Font Awesome 6 Free,Font Awesome 6 Free Regular:style=Regular:pixelsize=10;1
-#font-2 = Font Awesome 6 Brands,Font Awesome 6 Brands Regular:style=Regular:pixelsize=10;1
+;font-1 = Font Awesome 6 Free,Font Awesome 6 Free Regular:style=Regular:pixelsize=10;1
+;font-2 = Font Awesome 6 Brands,Font Awesome 6 Brands Regular:style=Regular:pixelsize=10;1
 
 
 modules-left = i3
+modules-center = spotify browsermediacontrol
 modules-right = filesystem xbacklight pulseaudio xkeyboard memory cpu wlan eth battery temperature date powermenu
 tray-position = right
 tray-padding = 2
@@ -77,6 +78,8 @@ tray-background = ${colors.primary}
 
 ;wm-restack = bspwm
 wm-restack = i3
+
+enable-ipc = true
 
 ;override-redirect = true
 
@@ -350,7 +353,7 @@ low-at = 20
 format-charging = <animation-charging> <label-charging>
 label-charging = %percentage%%
 
-format-discharging = <animation-discharging> <label-discharging>
+format-discharging = <ramp-capacity> <label-discharging>
 label-discharging = %percentage%%
 
 format-full = <ramp-capacity> <label-full>
@@ -439,6 +442,25 @@ menu-2-0 = power off
 menu-2-0-exec = sudo poweroff
 menu-2-1 = cancel
 menu-2-1-exec = menu-open-0
+
+[module/spotify]
+type = custom/script
+interval = 1
+format-prefix = " "
+format = <label>
+exec = python3 ~/.config/polybar/scripts/spotify_status.py -f '{artist}: {song}'
+format-underline = #1db954
+;control players (optional)
+click-left = playerctl --player=spotify play-pause
+click-right = playerctl --player=spotify next
+click-middle = playerctl --player=spotify previous
+
+[module/browsermediacontrol]
+type = custom/script
+exec = ~/.config/polybar/scripts/browsermediacontrol
+click-left = ~/.config/polybar/scripts/browsermediacontrol --playpause
+interval = 0.1
+
 
 [settings]
 screenchange-reload = true

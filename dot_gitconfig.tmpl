@@ -1,7 +1,7 @@
 [user]
 	name = Matouš Čermák
 	email = 83394404+maty139cz@users.noreply.github.com
-	signingKey = ""
+	signingkey = {{ .gpgPub }}
 [core]
 	editor = code --wait
 	autoclrf = input
@@ -11,14 +11,14 @@
 [gpg]
 	program = gpg
 [commit]
-	gpgSign = false
+	gpgsign = true
 [tag]
 	forceSignAnnotated = false
 [credential "https://github.com"]
-	helper =
+	helper = 
 	helper = !/usr/bin/gh auth git-credential
 [credential "https://gist.github.com"]
-	helper =
+	helper = 
 	helper = !/usr/bin/gh auth git-credential
 [alias]
 	amend = commit --amend --no-edit
