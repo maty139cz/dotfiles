@@ -285,7 +285,7 @@ set $mode_launch Launch (o) Obsidian (c) VScode (b) Browser (n) Nemo (s) Spotify
 mode "$mode_launch" {
     bindsym o exec  flatpak run md.obsidian.Obsidian, mode "default"
     bindsym c exec  code, mode "default"
-    bindsym b exec  floorp, mode "default"
+    bindsym b exec  firefox, mode "default"
     bindsym n exec  nemo, mode "default"
     bindsym s exec spotify, mode "default"
     bindsym p exec flatpak run com.bitwarden.desktop, mode "default"
