@@ -123,7 +123,6 @@ export PATH=$PATH:/home/matous/.spicetify
 # fnm
 export PATH="/home/matous/.local/share/fnm:$PATH"
 eval "`fnm env`"
-export TERMINAL=warp-terminal  
 
 #fix  kitty ssh when using kitty term 
 [ "$TERM" = "xterm-kitty" ] && alias ssh="kitty +kitten ssh"
