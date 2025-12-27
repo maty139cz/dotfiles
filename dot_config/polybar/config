@@ -70,7 +70,7 @@ font-0 = UbuntuMono Nerd Font Mono:style=Regular:pixelsize=10;1
 
 
 modules-left = i3
-modules-center = spotify browsermediacontrol mpd
+modules-center = spotify browsermediacontrol mpd kdeconnect
 modules-right = filesystem xbacklight pulseaudio xkeyboard memory cpu wlan eth battery temperature date powermenu
 tray-position = right
 tray-padding = 2
@@ -461,6 +461,10 @@ exec = ~/.config/polybar/scripts/browsermediacontrol
 click-left = ~/.config/polybar/scripts/browsermediacontrol --playpause
 interval = 0.1
 
+[module/kdeconnect]
+type = custom/script
+exec = "~/.config/polybar/scripts/polybar-kdeconnect.sh -d"
+tail = true
 
 [settings]
 screenchange-reload = true

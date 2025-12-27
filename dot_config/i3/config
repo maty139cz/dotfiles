@@ -285,7 +285,7 @@ set $mode_launch Launch (o) Obsidian (c) VScode (b) Browser (n) Nemo (s) Spotify
 mode "$mode_launch" {
     bindsym o exec  flatpak run md.obsidian.Obsidian, mode "default"
     bindsym c exec  code, mode "default"
-    bindsym b exec  flatpak run app.zen_browser.zen, mode "default"
+    bindsym b exec  zen-browser, mode "default"
     bindsym n exec  nemo, mode "default"
     bindsym s exec spotify, mode "default"
     bindsym p exec flatpak run com.bitwarden.desktop, mode "default"
@@ -299,7 +299,7 @@ mode "$mode_launch" {
 #the same shortcuts bau with mod key
     bindsym $mod+o exec --no-startup-id flatpak run md.obsidian.Obsidian, mode "default"
     bindsym $mod+c exec --no-startup-id code, mode "default"
-    bindsym $mod+b exec --no-startup-id flatpak run app.zen_browser.zen, mode "default"
+    bindsym $mod+b exec --no-startup-id zen-browser, mode "default"
     bindsym $mod+n exec --no-startup-id nemo, mode "default"
     bindsym $mod+s exec --no-startup-id spotify, mode "default"
     bindsym $mod+p exec --no-startup-id flatpak run com.bitwarden.desktop, mode "default"
